@@ -7,10 +7,26 @@ export function Home() {
       <form>
         <S.FormContainer>
           <label htmlFor="task">Vou trabalhar em</label>
-          <input type="text" id="task" />
+          <S.TaskInput
+            type="text"
+            id="task"
+            placeholder="Dê um nome para o seu projeto"
+            list="taskList"
+          />
+
+          <datalist id="taskList">
+            <option value="banana" />
+          </datalist>
 
           <label htmlFor="minutesAmount">durante</label>
-          <input type="number" id="minutesAmount" />
+          <S.MinutesAmountInput
+            type="number"
+            id="minutesAmount"
+            placeholder="00"
+            step={5}
+            max={60}
+            min={5}
+          />
 
           <span>minutos.</span>
         </S.FormContainer>
