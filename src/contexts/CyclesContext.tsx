@@ -65,16 +65,13 @@ export function CyclesContextProvider({
     const newCycle: ICycle = {
       id,
       task: data.task,
-      // minutesAmount: data.minutesAmount,
-      minutesAmount: 0.05,
+      minutesAmount: data.minutesAmount,
       startDate: new Date(),
     }
 
     setCycles((prevState) => [...prevState, newCycle])
     setActiveCycleId(id)
     setAmountSecondsPassed(0)
-
-    // reset()
   }
 
   function interruptCurrentCycle() {
