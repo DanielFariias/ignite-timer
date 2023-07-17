@@ -23,17 +23,18 @@ export function Countdown() {
       interval = setInterval(() => {
         const secondsDifference = differenceInSeconds(
           new Date(),
-          activeCycle.startDate,
+          new Date(activeCycle.startDate),
         )
 
         if (secondsDifference >= totalSeconds) {
           onCycleFinish()
-
           onSecondsPassed(totalSeconds)
-          return clearInterval(interval)
+          clearInterval(interval)
         } else {
           onSecondsPassed(secondsDifference)
         }
+
+        return () => clearInterval(interval)
       }, 1000)
     }
 
